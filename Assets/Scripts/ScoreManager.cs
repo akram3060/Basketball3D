@@ -38,6 +38,9 @@ public class ScoreManager : MonoBehaviour
             Debug.LogWarning("GameSessionManager not found. Unable to update score on server.");
         }
 
+        string jsCode = $"window.postMessage({localScore}, '*');";
+        Application.ExternalEval(jsCode);
+
         PlayScoreSound();
     }
 
